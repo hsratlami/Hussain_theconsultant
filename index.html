@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hussain Ratlamwala – Information Security Consultant & GRC Specialist with 8+ years of experience in ISO 27001, SOC 2, HITRUST, PCI DSS, and Risk Management.">
+<meta name="keywords" content="Information Security Consultant, GRC, ISO 27001, SOC 2, HITRUST, PCI DSS, Risk Management, Compliance, Audit">
+<title>Hussain Ratlamwala | Information Security Consultant & GRC Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #0d1f3c;
+    --navy-light: #132848;
+    --blue: #1a3a6b;
+    --accent: #c8a96e;
+    --accent-light: #e0c890;
+    --steel: #4a7ab5;
+    --steel-light: #6b9fd4;
+    --white: #f5f7fa;
+    --white-dim: rgba(245,247,250,0.7);
+    --white-faint: rgba(245,247,250,0.1);
+    --text: #cdd5e0;
+    --text-muted: #8896a8;
+    --border: rgba(200,169,110,0.2);
+    --card-bg: rgba(13,31,60,0.7);
+    --gradient: linear-gradient(135deg, #0a1628 0%, #132848 50%, #0a1628 100%);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+  /* ======================== NOISE OVERLAY ======================== */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.4;
+  }
+
+  /* ======================== NAV ======================== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 0 4rem;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+    transition: all 0.3s ease;
+  }
+  nav.scrolled { height: 60px; background: rgba(10,22,40,0.98); }
+
+  .nav-brand {
+    display: flex; flex-direction: column;
+    text-decoration: none;
+  }
+  .nav-brand .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--white); letter-spacing: 0.02em;
+  }
+  .nav-brand .title-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem; color: var(--accent);
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--text); text-decoration: none;
+    font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0;
+    width: 0; height: 1px; background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent) !important;
+    padding: 0.4rem 1.2rem;
+    border-radius: 2px;
+    font-size: 0.78rem !important;
+  }
+  .nav-cta:hover { background: var(--accent) !important; color: var(--navy) !important; }
+  .nav-cta::after { display: none !important; }
+
+  .nav-toggle {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .nav-toggle span {
+    display: block; width: 24px; height: 1.5px;
+    background: var(--white); transition: all 0.3s;
+  }
+
+  /* ======================== HERO ======================== */
+  #hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 4rem 80px;
+    overflow: hidden;
+  }
+  .hero-inner {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .hero-orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(26,58,107,0.6) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    animation: pulse 8s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+    bottom: 0; left: 10%;
+    animation: pulse 12s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .hero-content { max-width: 780px; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; color: var(--accent);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 30px; height: 1px; background: var(--accent);
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero-role {
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: var(--steel-light);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.8rem;
+    opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-role span { color: var(--accent); font-weight: 500; }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--white-dim);
+    font-weight: 300;
+    line-height: 1.8;
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+    opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent);
+    color: var(--navy);
+    padding: 0.85rem 2rem;
+    font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .btn-primary::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--accent-light);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  .btn-primary:hover::before { transform: translateX(0); }
+  .btn-primary span, .btn-primary i { position: relative; z-index: 1; }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid rgba(245,247,250,0.25);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .btn-outline:hover {
+    border-color: var(--accent); color: var(--accent);
+    background: rgba(200,169,110,0.05);
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem; flex-wrap: wrap;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(200,169,110,0.15);
+    opacity: 0; animation: fadeUp 0.8s 1.2s forwards;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--accent); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-top: 0.3rem;
+  }
+
+  /* ======================== SECTION BASE ======================== */
+  section { padding: 100px 4rem; position: relative; }
+
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; color: var(--accent);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .section-tag::before {
+    content: ''; display: block;
+    width: 20px; height: 1px; background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.15; margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem; color: var(--text-muted);
+    max-width: 580px; line-height: 1.8;
+  }
+
+  .section-header { margin-bottom: 4rem; }
+
+  /* ======================== ABOUT ======================== */
+  #about { background: var(--navy-mid); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+
+  .about-text p {
+    color: var(--text); font-size: 1rem;
+    line-height: 1.9; margin-bottom: 1.4rem;
+  }
+  .about-text p strong { color: var(--accent); font-weight: 500; }
+
+  .about-skills { margin-top: 2rem; }
+  .skills-list {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    list-style: none;
+  }
+  .skills-list li {
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.3rem 0.9rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .skills-list li:hover {
+    border-color: var(--accent); color: var(--accent);
+    background: rgba(200,169,110,0.05);
+  }
+
+  .about-highlight-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .about-highlight-box::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+  }
+
+  .highlight-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.8rem;
+    border-bottom: 1px solid rgba(200,169,110,0.1);
+  }
+  .highlight-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .highlight-icon {
+    width: 42px; height: 42px; flex-shrink: 0;
+    background: rgba(200,169,110,0.1);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: 1rem;
+  }
+
+  .highlight-text h4 {
+    font-size: 0.9rem; font-weight: 600;
+    color: var(--white); margin-bottom: 0.2rem;
+  }
+  .highlight-text p {
+    font-size: 0.82rem; color: var(--text-muted);
+    line-height: 1.5; margin: 0;
+  }
+
+  /* ======================== EXPERTISE ======================== */
+  #expertise { background: var(--navy); }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .expertise-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(200,169,110,0.12);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .expertise-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .expertise-card:hover {
+    border-color: rgba(200,169,110,0.3);
+    transform: translateY(-4px);
+    background: rgba(19,40,72,0.9);
+  }
+  .expertise-card:hover::after { transform: scaleX(1); }
+
+  .expertise-icon {
+    width: 48px; height: 48px;
+    background: rgba(200,169,110,0.1);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .expertise-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--white); margin-bottom: 1rem;
+  }
+
+  .expertise-items { list-style: none; }
+  .expertise-items li {
+    font-size: 0.82rem; color: var(--text-muted);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .expertise-items li:last-child { border-bottom: none; }
+  .expertise-items li::before {
+    content: '›';
+    color: var(--accent); font-size: 1rem;
+  }
+
+  /* ======================== SERVICES ======================== */
+  #services { background: var(--navy-mid); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(200,169,110,0.12);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .service-card:hover {
+    border-color: rgba(200,169,110,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
+  .service-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .service-card h3 {
+    font-size: 1rem; font-weight: 600;
+    color: var(--white); line-height: 1.4;
+  }
+
+  .service-card p {
+    font-size: 0.85rem; color: var(--text-muted);
+    line-height: 1.7; flex: 1;
+  }
+
+  .service-icon {
+    color: var(--accent); font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* ======================== EXPERIENCE ======================== */
+  #experience { background: var(--navy); }
+
+  .timeline {
+    position: relative;
+    max-width: 800px; margin: 0 auto;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), rgba(200,169,110,0.1));
+  }
+
+  .timeline-item {
+    padding-left: 60px;
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute; left: 11px; top: 8px;
+    width: 20px; height: 20px;
+    background: var(--navy);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .timeline-dot::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--accent); border-radius: 50%;
+  }
+
+  .timeline-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem; color: var(--accent);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.3rem;
+  }
+
+  .timeline-item .company {
+    font-size: 0.88rem; color: var(--steel-light);
+    margin-bottom: 1rem; font-weight: 500;
+  }
+
+  .timeline-responsibilities {
+    list-style: none;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  .timeline-responsibilities li {
+    font-size: 0.82rem; color: var(--text-muted);
+    display: flex; gap: 0.5rem; align-items: flex-start;
+  }
+  .timeline-responsibilities li::before {
+    content: '◆';
+    color: var(--accent); font-size: 0.45rem;
+    margin-top: 6px; flex-shrink: 0;
+  }
+
+  .timeline-note {
+    margin-top: 1.2rem;
+    padding: 1rem 1.2rem;
+    background: rgba(200,169,110,0.05);
+    border-left: 2px solid var(--accent);
+    font-size: 0.85rem; color: var(--text);
+    font-style: italic; border-radius: 0 3px 3px 0;
+  }
+
+  /* ======================== FRAMEWORKS ======================== */
+  #frameworks { background: var(--navy-mid); }
+
+  .frameworks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .framework-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(200,169,110,0.12);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex; gap: 1.2rem; align-items: flex-start;
+  }
+  .framework-card:hover {
+    border-color: rgba(200,169,110,0.3);
+    transform: translateY(-3px);
+  }
+
+  .framework-badge {
+    min-width: 70px; height: 70px;
+    background: rgba(200,169,110,0.08);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; gap: 0.2rem;
+  }
+  .framework-badge .badge-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; font-weight: 500;
+    color: var(--accent); line-height: 1.2;
+  }
+
+  .framework-info h3 {
+    font-size: 1rem; font-weight: 600;
+    color: var(--white); margin-bottom: 0.4rem;
+  }
+  .framework-info p {
+    font-size: 0.8rem; color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ======================== DELIVERABLES ======================== */
+  #deliverables { background: var(--navy); }
+
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .deliverable-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(200,169,110,0.1);
+    border-radius: 3px;
+    padding: 1.2rem 1.5rem;
+    display: flex; align-items: center; gap: 0.8rem;
+    transition: all 0.25s ease;
+    cursor: default;
+  }
+  .deliverable-item:hover {
+    border-color: var(--accent);
+    background: rgba(200,169,110,0.05);
+    transform: translateX(4px);
+  }
+  .deliverable-item i {
+    color: var(--accent); font-size: 0.9rem;
+    min-width: 16px;
+  }
+  .deliverable-item span {
+    font-size: 0.82rem; color: var(--text);
+    font-weight: 400;
+  }
+
+  /* ======================== CERTIFICATIONS ======================== */
+  #certifications { background: var(--navy-mid); }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cert-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(200,169,110,0.15);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .cert-card.active {
+    border-color: var(--accent);
+  }
+  .cert-card.active::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  }
+  .cert-card.placeholder {
+    opacity: 0.5;
+    border-style: dashed;
+  }
+  .cert-card:hover:not(.placeholder) {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
+  .cert-icon {
+    width: 70px; height: 70px; margin: 0 auto 1.2rem;
+    background: rgba(200,169,110,0.1);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; color: var(--accent);
+  }
+
+  .cert-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--white);
+    margin-bottom: 0.3rem;
+  }
+  .cert-card p {
+    font-size: 0.78rem; color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .cert-status {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.8rem;
+    border-radius: 2px;
+  }
+  .cert-status.verified {
+    background: rgba(200,169,110,0.15);
+    color: var(--accent);
+    border: 1px solid var(--border);
+  }
+  .cert-status.upcoming {
+    background: rgba(74,122,181,0.1);
+    color: var(--steel-light);
+    border: 1px solid rgba(74,122,181,0.2);
+  }
+
+  /* ======================== WHY WORK WITH ME ======================== */
+  #why { background: var(--navy); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .why-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(200,169,110,0.1);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .why-card:hover {
+    border-color: rgba(200,169,110,0.3);
+    transform: translateY(-4px);
+  }
+
+  .why-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 700;
+    color: rgba(200,169,110,0.12);
+    line-height: 1;
+    position: absolute; top: 1.2rem; right: 1.5rem;
+  }
+
+  .why-icon {
+    color: var(--accent); font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .why-card h3 {
+    font-size: 1rem; font-weight: 600;
+    color: var(--white); margin-bottom: 0.5rem;
+  }
+  .why-card p {
+    font-size: 0.83rem; color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ======================== CONTACT ======================== */
+  #contact { background: var(--navy-mid); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem; align-items: start;
+  }
+
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .contact-info p {
+    font-size: 0.9rem; color: var(--text-muted);
+    line-height: 1.8; margin-bottom: 2rem;
+  }
+
+  .contact-items { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .contact-items li {
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .contact-items .ci-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: rgba(200,169,110,0.08);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent); font-size: 0.9rem;
+  }
+  .contact-items .ci-detail strong {
+    display: block; font-size: 0.7rem;
+    color: var(--text-muted); letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 0.1rem;
+  }
+  .contact-items .ci-detail span {
+    font-size: 0.88rem; color: var(--text);
+  }
+  .contact-items a { color: var(--text); text-decoration: none; }
+  .contact-items a:hover { color: var(--accent); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-size: 0.72rem; color: var(--text-muted);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .form-group input,
+  .form-group textarea {
+    background: rgba(10,22,40,0.8);
+    border: 1px solid rgba(200,169,110,0.15);
+    border-radius: 3px;
+    padding: 0.85rem 1rem;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    resize: none;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--text-muted); }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--accent);
+    background: rgba(10,22,40,0.95);
+  }
+
+  .form-submit {
+    align-self: flex-start;
+  }
+
+  /* ======================== FOOTER ======================== */
+  footer {
+    background: #060e1a;
+    padding: 2.5rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; color: var(--text-muted);
+  }
+  .footer-brand span { color: var(--accent); }
+
+  .social-links { display: flex; gap: 0.8rem; }
+  .social-link {
+    width: 38px; height: 38px;
+    background: var(--white-faint);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .social-link:hover {
+    background: rgba(200,169,110,0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ======================== ANIMATIONS ======================== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ======================== MOBILE MENU ======================== */
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+    background: rgba(10,22,40,0.98);
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 1.3rem; color: var(--white);
+    text-decoration: none; letter-spacing: 0.06em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--accent); }
+
+  /* ======================== DIVIDER ======================== */
+  .section-divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    margin-top: 1rem;
+  }
+
+  /* ======================== RESPONSIVE ======================== */
+  @media (max-width: 1024px) {
+    nav { padding: 0 2rem; }
+    section { padding: 80px 2rem; }
+    #hero { padding: 120px 2rem 80px; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    footer { padding: 2rem; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    section { padding: 70px 1.5rem; }
+    #hero { padding: 100px 1.5rem 60px; }
+    .hero-stats { gap: 2rem; margin-top: 3rem; }
+    .timeline-responsibilities { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; padding: 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+    .stat-number { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-brand">
+    <span class="name">Hussain Ratlamwala</span>
+    <span class="title-tag">// InfoSec Consultant</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#expertise" onclick="closeMobile()">Expertise</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#frameworks" onclick="closeMobile()">Frameworks</a>
+  <a href="#certifications" onclick="closeMobile()">Certifications</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Information Security & GRC Professional</div>
+      <h1 class="hero-name">Hussain<br>Ratlamwala</h1>
+      <p class="hero-role">
+        <span>Information Security Consultant</span> &nbsp;·&nbsp; GRC Specialist &nbsp;·&nbsp; Lead Auditor
+      </p>
+      <p class="hero-tagline">
+        Helping organizations strengthen security, achieve compliance, manage risk, and build resilient governance frameworks.
+      </p>
+
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">8+</span>
+        <span class="stat-label">Years of Experience</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">6+</span>
+        <span class="stat-label">Compliance Frameworks</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Audit Engagements</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">ISO</span>
+        <span class="stat-label">27001 Lead Auditor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">Security Leadership Grounded in Practice</h2>
+      <div class="section-divider"></div>
+      <br>
+      <p>
+        I am an Information Security and Governance, Risk &amp; Compliance (GRC) professional with <strong>8+ years of experience</strong> helping organizations establish, implement, and continuously improve their security and compliance programs.
+      </p>
+      <p>
+        My background spans both sides of the assurance spectrum — as an <strong>Information Security Auditor</strong> and as an <strong>Information Security Consultant</strong> — giving me a uniquely balanced perspective on what organizations need to achieve and maintain robust security postures.
+      </p>
+      <p>
+        I have supported organizations across diverse industries in navigating complex regulatory landscapes, achieving internationally recognized certifications, and embedding security into their operational culture — not just their documentation.
+      </p>
+      <div class="about-skills" style="margin-top:1.5rem;">
+        <ul class="skills-list">
+          <li>Information Security Governance</li>
+          <li>Risk Management</li>
+          <li>Compliance Management</li>
+          <li>Internal Audits</li>
+          <li>Third-Party Risk</li>
+          <li>Business Continuity</li>
+          <li>Security Assessments</li>
+          <li>GRC Strategy</li>
+          <li>Policy Development</li>
+          <li>Audit Readiness</li>
+        </ul>
+      </div>
+    </div>
+    <div class="about-highlight-box reveal reveal-delay-2">
+      <div class="highlight-item">
+        <div class="highlight-icon"><i class="fas fa-shield-halved"></i></div>
+        <div class="highlight-text">
+          <h4>Security Governance</h4>
+          <p>Designing and operationalizing governance frameworks that align security with business objectives and regulatory obligations.</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+        <div class="highlight-text">
+          <h4>Audit & Assurance</h4>
+          <p>Conducting thorough internal audits, gap assessments, and readiness evaluations to identify and remediate control deficiencies.</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon"><i class="fas fa-triangle-exclamation"></i></div>
+        <div class="highlight-text">
+          <h4>Risk Management</h4>
+          <p>Executing enterprise and information security risk assessments, maintaining risk registers, and driving risk treatment to acceptable levels.</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon"><i class="fas fa-file-shield"></i></div>
+        <div class="highlight-text">
+          <h4>Documentation Excellence</h4>
+          <p>Developing comprehensive, audit-ready security policies, standards, procedures, and control documentation aligned to industry frameworks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-header reveal">
+    <div class="section-tag">Core Expertise</div>
+    <h2 class="section-title">Domains of Deep Knowledge</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle" style="margin-top:1rem;">A practitioner-level command of the frameworks, methodologies, and controls that matter most.</p>
+  </div>
+  <div class="expertise-grid">
+    <div class="expertise-card reveal reveal-delay-1">
+      <div class="expertise-icon"><i class="fas fa-landmark"></i></div>
+      <h3>Governance &amp; Compliance</h3>
+      <ul class="expertise-items">
+        <li>ISO 27001 Implementation</li>
+        <li>SOC 2 Type I &amp; Type II</li>
+        <li>HITRUST CSF</li>
+        <li>PCI DSS</li>
+        <li>ISO 22301</li>
+        <li>Security Policies &amp; Procedures</li>
+      </ul>
+    </div>
+    <div class="expertise-card reveal reveal-delay-2">
+      <div class="expertise-icon"><i class="fas fa-triangle-exclamation"></i></div>
+      <h3>Risk Management</h3>
+      <ul class="expertise-items">
+        <li>Enterprise Risk Assessments</li>
+        <li>Information Security Risk Assessments</li>
+        <li>Vendor Risk Management</li>
+        <li>Risk Treatment Planning</li>
+        <li>Risk Registers &amp; Tracking</li>
+        <li>Control Effectiveness Reviews</li>
+      </ul>
+    </div>
+    <div class="expertise-card reveal reveal-delay-3">
+      <div class="expertise-icon"><i class="fas fa-clipboard-check"></i></div>
+      <h3>Audit &amp; Assurance</h3>
+      <ul class="expertise-items">
+        <li>Internal Audits</li>
+        <li>Gap Assessments</li>
+        <li>Readiness Assessments</li>
+        <li>Control Testing</li>
+        <li>Audit Management</li>
+        <li>Corrective Action Management</li>
+      </ul>
+    </div>
+    <div class="expertise-card reveal reveal-delay-4">
+      <div class="expertise-icon"><i class="fas fa-building-circle-arrow-right"></i></div>
+      <h3>Business Continuity</h3>
+      <ul class="expertise-items">
+        <li>Business Impact Analysis</li>
+        <li>Business Continuity Planning</li>
+        <li>Disaster Recovery Planning</li>
+        <li>Crisis Management</li>
+        <li>ISO 22301 Compliance</li>
+        <li>BCP Testing &amp; Exercises</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <div class="section-tag">Services</div>
+    <h2 class="section-title">What I Can Do For You</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle" style="margin-top:1rem;">End-to-end consulting engagements tailored to your compliance objectives and risk tolerance.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-number">01</div>
+      <i class="fas fa-certificate service-icon"></i>
+      <h3>ISO 27001 Implementation &amp; Readiness</h3>
+      <p>Full-cycle support from gap assessment through ISMS design, documentation, control implementation, and certification readiness — guiding your organization to successful ISO 27001 certification.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-number">02</div>
+      <i class="fas fa-server service-icon"></i>
+      <h3>SOC 2 Type I &amp; Type II Readiness</h3>
+      <p>Structured readiness programs to help service organizations meet AICPA Trust Services Criteria, prepare audit evidence, and achieve clean SOC 2 reports that satisfy enterprise customer requirements.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-number">03</div>
+      <i class="fas fa-hospital service-icon"></i>
+      <h3>HITRUST Compliance Support</h3>
+      <p>Readiness and remediation support aligned to the HITRUST CSF, helping healthcare and health-tech organizations demonstrate robust data protection controls to partners and regulators.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-4">
+      <div class="service-number">04</div>
+      <i class="fas fa-credit-card service-icon"></i>
+      <h3>PCI DSS Compliance Consulting</h3>
+      <p>Scoping, gap analysis, control design, and remediation planning to achieve and maintain PCI DSS compliance across cardholder data environments of all sizes and complexity.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-number">05</div>
+      <i class="fas fa-magnifying-glass service-icon"></i>
+      <h3>Internal Audits</h3>
+      <p>Independent, risk-based internal audit programs covering information security controls, IT general controls, and compliance with applicable frameworks, producing actionable findings and management reports.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-number">06</div>
+      <i class="fas fa-file-lines service-icon"></i>
+      <h3>Security Policies &amp; Procedures</h3>
+      <p>Development and review of comprehensive information security policy suites, standards, and operational procedures aligned to ISO 27001, NIST, and other leading frameworks.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-number">07</div>
+      <i class="fas fa-triangle-exclamation service-icon"></i>
+      <h3>Risk Assessment Services</h3>
+      <p>Systematic enterprise and information security risk assessments — identifying, analyzing, and evaluating threats and vulnerabilities, with pragmatic risk treatment recommendations tailored to your business context.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-4">
+      <div class="service-number">08</div>
+      <i class="fas fa-handshake service-icon"></i>
+      <h3>Third-Party Risk Management</h3>
+      <p>Design and operation of TPRM programs including vendor risk tiering, assessment questionnaires, due diligence reviews, and ongoing monitoring aligned to your procurement and contracting lifecycle.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-number">09</div>
+      <i class="fas fa-building-circle-arrow-right service-icon"></i>
+      <h3>Business Continuity &amp; ISO 22301</h3>
+      <p>End-to-end BCM program development — from BIA and BCP through DR planning, crisis communication, and tabletop exercises — aligned to ISO 22301 and industry best practices.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-number">10</div>
+      <i class="fas fa-folder-open service-icon"></i>
+      <h3>Security Documentation Development</h3>
+      <p>Creation of audit-ready security documentation including Statements of Applicability, control matrices, risk registers, and management review packs for regulatory submissions and customer assurance.</p>
+    </div>
+	<div class="service-card reveal reveal-delay-2">
+      <div class="service-number">11</div>
+      <i class="fas fa-solid fa-virus service-icon"></i>
+      <h3>Vulnerability Assessment & Penetration Testing (VAPT)</h3>
+      <p>Scoping, planning, and coordinating VAPT engagements covering asset discovery, vulnerability scanning, risk-based prioritization, and penetration testing. Includes pre-engagement preparation, findings interpretation, and post-assessment remediation planning to systematically reduce your organization's attack surface.</p>
+    </div>
+	<div class="service-card reveal reveal-delay-2">
+      <div class="service-number">12</div>
+      <i class="fas fa-solid fa-people-arrows service-icon"></i>
+      <h3>Virtual CISO (vCISO)</h3>
+      <p>Fractional security leadership covering strategic program oversight, board-level reporting, security roadmap development, policy governance, compliance management, and vendor oversight — delivering embedded CISO-level expertise aligned to your business objectives without the cost of a full-time hire.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <div class="section-tag">Experience</div>
+    <h2 class="section-title">Professional Journey</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">Current Role</div>
+      <h3>Information Security Consultant</h3>
+      <p class="company">Independent Consulting Practice</p>
+      <ul class="timeline-responsibilities">
+        <li>Security Compliance Program Design</li>
+        <li>ISO 27001 &amp; SOC 2 Implementation</li>
+        <li>Enterprise Risk Management</li>
+        <li>Governance Framework Development</li>
+        <li>Security Policy Documentation</li>
+        <li>Audit Readiness Advisory</li>
+        <li>Vendor Risk Program Management</li>
+        <li>Stakeholder Risk Reporting</li>
+        <li>Business Continuity Planning</li>
+        <li>Compliance Gap Remediation</li>
+      </ul>
+      <div class="timeline-note">
+        Successfully managed multiple audit and compliance engagements while collaborating with stakeholders across business, technology, and security functions.
+      </div>
+    </div>
+    <div class="timeline-item reveal reveal-delay-2">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">Previous Role</div>
+      <h3>Information Security Auditor</h3>
+      <p class="company">Information Security Assurance Practice</p>
+      <ul class="timeline-responsibilities">
+        <li>Internal Audit Planning &amp; Execution</li>
+        <li>Compliance Framework Assessments</li>
+        <li>IT General Control Reviews</li>
+        <li>Risk Identification &amp; Analysis</li>
+        <li>Corrective Action Tracking</li>
+        <li>Management Report Preparation</li>
+        <li>Control Effectiveness Testing</li>
+        <li>Regulatory Compliance Reviews</li>
+        <li>Process Walkthroughs</li>
+        <li>Evidence Collection &amp; Documentation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORKS -->
+<section id="frameworks">
+  <div class="section-header reveal">
+    <div class="section-tag">Framework Expertise</div>
+    <h2 class="section-title">Compliance Frameworks</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle" style="margin-top:1rem;">Hands-on experience across the standards and frameworks that define information security and compliance excellence.</p>
+  </div>
+  <div class="frameworks-grid">
+    <div class="framework-card reveal reveal-delay-1">
+      <div class="framework-badge"><span class="badge-label">ISO<br>27001</span></div>
+      <div class="framework-info">
+        <h3>ISO/IEC 27001</h3>
+        <p>The international standard for Information Security Management Systems. Experienced in full ISMS implementation, Statement of Applicability, control annexure, and certification audit readiness.</p>
+      </div>
+    </div>
+    <div class="framework-card reveal reveal-delay-2">
+      <div class="framework-badge"><span class="badge-label">SOC 2<br>Type I</span></div>
+      <div class="framework-info">
+        <h3>SOC 2 Type I</h3>
+        <p>Point-in-time assurance over the design of security, availability, processing integrity, confidentiality, and privacy controls against the AICPA Trust Services Criteria.</p>
+      </div>
+    </div>
+    <div class="framework-card reveal reveal-delay-3">
+      <div class="framework-badge"><span class="badge-label">SOC 2<br>Type II</span></div>
+      <div class="framework-info">
+        <h3>SOC 2 Type II</h3>
+        <p>Operational effectiveness testing over an audit period, requiring sustained control performance. Readiness programs structured to minimize audit findings and reduce remediation cycles.</p>
+      </div>
+    </div>
+    <div class="framework-card reveal reveal-delay-4">
+      <div class="framework-badge"><span class="badge-label">HIT<br>RUST</span></div>
+      <div class="framework-info">
+        <h3>HITRUST CSF</h3>
+        <p>Common Security Framework used extensively in healthcare and health technology sectors. Provides a prescriptive, certifiable control baseline across regulatory and industry requirements.</p>
+      </div>
+    </div>
+    <div class="framework-card reveal reveal-delay-1">
+      <div class="framework-badge"><span class="badge-label">PCI<br>DSS</span></div>
+      <div class="framework-info">
+        <h3>PCI DSS</h3>
+        <p>Payment Card Industry Data Security Standard protecting cardholder data environments. Experienced in scoping, network segmentation, control implementation, and SAQ/RoC preparation.</p>
+      </div>
+    </div>
+    <div class="framework-card reveal reveal-delay-2">
+      <div class="framework-badge"><span class="badge-label">ISO<br>22301</span></div>
+      <div class="framework-info">
+        <h3>ISO 22301</h3>
+        <p>International standard for Business Continuity Management Systems. Covers BIA, continuity strategy, BCM documentation, testing programs, and BCMS certification preparation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section id="deliverables">
+  <div class="section-header reveal">
+    <div class="section-tag">Deliverables</div>
+    <h2 class="section-title">What You Receive</h2>
+    <div class="section-divider"></div>
+    <p class="section-subtitle" style="margin-top:1rem;">Tangible, audit-ready artifacts that demonstrate your security posture and accelerate compliance outcomes.</p>
+  </div>
+  <div class="deliverables-grid">
+    <div class="deliverable-item reveal"><i class="fas fa-file-shield"></i><span>Information Security Policies</span></div>
+    <div class="deliverable-item reveal reveal-delay-1"><i class="fas fa-book"></i><span>Standards &amp; Procedures</span></div>
+    <div class="deliverable-item reveal reveal-delay-2"><i class="fas fa-chart-pie"></i><span>Risk Assessment Reports</span></div>
+    <div class="deliverable-item reveal reveal-delay-3"><i class="fas fa-table-list"></i><span>Risk Registers</span></div>
+    <div class="deliverable-item reveal"><i class="fas fa-clipboard-list"></i><span>Internal Audit Reports</span></div>
+    <div class="deliverable-item reveal reveal-delay-1"><i class="fas fa-handshake"></i><span>Vendor Risk Assessments</span></div>
+    <div class="deliverable-item reveal reveal-delay-2"><i class="fas fa-list-check"></i><span>Statement of Applicability</span></div>
+    <div class="deliverable-item reveal reveal-delay-3"><i class="fas fa-building-circle-arrow-right"></i><span>Business Impact Analysis</span></div>
+    <div class="deliverable-item reveal"><i class="fas fa-rotate-right"></i><span>Business Continuity Plans</span></div>
+    <div class="deliverable-item reveal reveal-delay-1"><i class="fas fa-server"></i><span>Disaster Recovery Plans</span></div>
+    <div class="deliverable-item reveal reveal-delay-2"><i class="fas fa-gauge-high"></i><span>Compliance Dashboards</span></div>
+    <div class="deliverable-item reveal reveal-delay-3"><i class="fas fa-users"></i><span>Security Awareness Programs</span></div>
+	<div class="deliverable-item reveal reveal-delay-3"><i class="fa-solid fa-virus"></i><span>Vulnerability Management</span></div>
+	<div class="deliverable-item reveal reveal-delay-3"><i class="fa-solid fa-vials"></i><span>Penetration Testing</span></div>
+	<div class="deliverable-item reveal reveal-delay-3"><i class="fa-solid fa-people-arrows"></i></i><span>vCISO</span></div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header reveal">
+    <div class="section-tag">Certifications</div>
+    <h2 class="section-title">Professional Credentials</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card active reveal reveal-delay-1">
+      <div class="cert-icon"><i class="fas fa-award"></i></div>
+      <h3>ISO 27001 Lead Auditor</h3>
+      <p>Certified to conduct and lead ISO/IEC 27001 audits, assess ISMS conformance, and evaluate information security control effectiveness.</p>
+      <span class="cert-status verified">Certified</span>
+    </div>
+    <div class="cert-card active reveal reveal-delay-1">
+      <div class="cert-icon"><i class="fas fa-award"></i></div>
+      <h3>Certified Information Security Consultant</h3>
+      <p>Certified from a well known Information and Cybersecurity Institution.</p>
+      <span class="cert-status verified">Certified</span>
+    </div>
+    <div class="cert-card placeholder reveal reveal-delay-3">
+      <div class="cert-icon"><i class="fas fa-plus"></i></div>
+      <h3>CISM</h3>
+      <p>Additional professional certification — to be added soon.</p>
+      <span class="cert-status upcoming">Coming Soon</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY WORK WITH ME -->
+<section id="why">
+  <div class="section-header reveal">
+    <div class="section-tag">Why Choose Me</div>
+    <h2 class="section-title">The Difference I Bring</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal reveal-delay-1">
+      <span class="why-number">01</span>
+      <div class="why-icon"><i class="fas fa-medal"></i></div>
+      <h3>8+ Years of Hands-On Experience</h3>
+      <p>More than eight years of practitioner-level experience across both audit and consulting disciplines — not theoretical knowledge, but proven delivery in real organizations.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <span class="why-number">02</span>
+      <div class="why-icon"><i class="fas fa-scale-balanced"></i></div>
+      <h3>Dual Audit &amp; Consulting Perspective</h3>
+      <p>Having operated as both an auditor and a consultant, I understand exactly what auditors look for — and how to prepare your organization to pass with confidence.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <span class="why-number">03</span>
+      <div class="why-icon"><i class="fas fa-globe"></i></div>
+      <h3>Multi-Framework Regulatory Knowledge</h3>
+      <p>Deep familiarity with ISO 27001, SOC 2, HITRUST, PCI DSS, ISO 22301, and related regulations allows cross-framework optimization rather than siloed compliance efforts.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-4">
+      <span class="why-number">04</span>
+      <div class="why-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+      <h3>Practical, Implementable Solutions</h3>
+      <p>Recommendations are grounded in operational reality. Controls and processes are designed to work within your business — not just satisfy auditors on paper.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <span class="why-number">05</span>
+      <div class="why-icon"><i class="fas fa-pen-nib"></i></div>
+      <h3>Strong Documentation Capability</h3>
+      <p>Producing clear, comprehensive, audit-ready documentation is a core strength — from policies and risk registers to SOA matrices and management review packs.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <span class="why-number">06</span>
+      <div class="why-icon"><i class="fas fa-briefcase"></i></div>
+      <h3>Business-Focused Security Approach</h3>
+      <p>Security exists to enable business, not obstruct it. Compliance programs are designed to protect what matters while preserving operational agility and stakeholder trust.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Start a Conversation</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <h3>Let's Work Together</h3>
+      <p>Whether you're preparing for a certification audit, building out your GRC program, or need an independent perspective on your security posture — I'm here to help. Reach out to discuss your needs.</p>
+      <ul class="contact-items">
+        <li>
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div class="ci-detail">
+            <strong>Email</strong>
+            <a href="mailto:hsratlami24@gmail.com"><span>hsratlami24@gmail.com</span></a>
+          </div>
+        </li>
+        <li>
+          <div class="ci-icon"><i class="fab fa-linkedin-in"></i></div>
+          <div class="ci-detail">
+            <strong>LinkedIn</strong>
+            <a href="https://linkedin.com/in/hussain-ratlamwala" target="_blank"><span>linkedin.com/in/hussain-ratlamwala</span></a>
+          </div>
+        </li>
+        <li>
+          <div class="ci-icon"><i class="fas fa-phone"></i></div>
+          <div class="ci-detail">
+            <strong>Phone</strong>
+            <span>+91 83830 03331</span>
+          </div>
+        </li>
+        <li>
+          <div class="ci-icon"><i class="fas fa-location-dot"></i></div>
+          <div class="ci-detail">
+            <strong>Location</strong>
+            <span>India &nbsp;·&nbsp; Available Remotely Worldwide</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="contact-form reveal reveal-delay-2">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">Full Name</label>
+          <input type="text" id="fname" name="name" placeholder="John Smith">
+        </div>
+        <div class="form-group">
+          <label for="femail">Email Address</label>
+          <input type="email" id="femail" name="email" placeholder="john@company.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fcompany">Company / Organization</label>
+        <input type="text" id="fcompany" name="company" placeholder="Your Organization">
+      </div>
+      <div class="form-group">
+        <label for="fmessage">Message</label>
+        <textarea id="fmessage" name="message" rows="6" placeholder="Tell me about your security or compliance challenge..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="button" class="btn-primary" onclick="handleFormSubmit(this)">
+          <i class="fas fa-paper-plane"></i>
+          <span>Send Message</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    © 2026 <span>Hussain Ratlamwala</span> &nbsp;·&nbsp; Information Security Consultant
+  </div>
+  <div class="social-links">
+    <a href="https://linkedin.com/in/hussain-ratlamwala" class="social-link" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="mailto:hsratlami24@gmail.com" class="social-link" title="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="#" class="social-link" title="Website" onclick="return false;">
+      <i class="fas fa-globe"></i>
+    </a>
+  </div>
+</footer>
+
+<script>
+  // ====== NAVBAR SCROLL ======
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ====== MOBILE MENU ======
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+  window.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !mobileMenu.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+    }
+  });
+
+  // ====== SCROLL REVEAL ======
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ====== FORM SUBMIT ======
+  function handleFormSubmit(btn) {
+    const name = document.getElementById('fname').value.trim();
+    const email = document.getElementById('femail').value.trim();
+    const msg = document.getElementById('fmessage').value.trim();
+    if (!name || !email || !msg) {
+      btn.innerHTML = '<i class="fas fa-exclamation-circle"></i><span>Please fill required fields</span>';
+      btn.style.background = '#b45309';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i><span>Send Message</span>';
+        btn.style.background = '';
+      }, 2500);
+      return;
+    }
+    btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i><span>Sending...</span>';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-check"></i><span>Message Sent!</span>';
+      btn.style.background = '#2e7d52';
+      document.getElementById('fname').value = '';
+      document.getElementById('femail').value = '';
+      document.getElementById('fcompany').value = '';
+      document.getElementById('fmessage').value = '';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i><span>Send Message</span>';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    }, 1400);
+  }
+
+  // ====== ACTIVE NAV LINK ======
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+    });
+  });
+
+  // ====== COUNTER ANIMATION ======
+  function animateCounters() {
+    document.querySelectorAll('.stat-number').forEach(el => {
+      const text = el.textContent;
+      const num = parseFloat(text);
+      if (!isNaN(num)) {
+        let start = 0;
+        const duration = 1500;
+        const step = (timestamp) => {
+          if (!start) start = timestamp;
+          const progress = Math.min((timestamp - start) / duration, 1);
+          const val = Math.floor(progress * num);
+          el.textContent = val + (text.includes('+') ? '+' : '');
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    });
+  }
+  const heroObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) { animateCounters(); heroObserver.disconnect(); }
+  }, { threshold: 0.5 });
+  heroObserver.observe(document.getElementById('hero'));
+</script>
+</body>
+</html>
